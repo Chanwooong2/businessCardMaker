@@ -1,0 +1,13 @@
+h1{
+	color: darkslategrey;
+}
+
+.body {
+	margin:10px;
+	width: calc(100% - 20px);
+	background-color: lightcyan;
+	display: flex;
+	justify-content: center;
+	
+	height: 200px;
+}
