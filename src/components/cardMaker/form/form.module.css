@@ -1,13 +1,61 @@
+@value makerBlack, makerWhite, makerGreen from '../../../common/colors.css';
+
 h1{
 	color: darkslategrey;
 }
 
 .body {
-	margin:10px;
-	width: calc(100% - 20px);
+	margin:20px;
+	width:100%;
 	background-color: lightcyan;
 	display: flex;
-	justify-content: center;
-	
-	height: 200px;
+	flex-wrap: wrap;
+	border-top:1px solid makerBlack;
+	border-left:1px solid makerBlack;
+}
+
+.input,
+.select {
+	flex: 1 1 30%;
+}
+
+.input,
+.select,
+.textarea{
+	width: 100%;
+}
+
+.fileInput,
+.button {
+	flex: 1 1;
+}
+
+
+.input,
+.select,
+.textarea,
+.fileInput,
+.button {
+	border: 0;
+	border-bottom : 1px solid makerBlack;
+	border-right : 1px solid makerBlack;
+	background: makerWhite;
+	padding: 0.5rem;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+	outline: none;
+}
+
+.button {
+	background-color: makerGreen;
+	color: makerWhite;
+	font-weight: bold;
+	cursor: pointer;
+	font-size: 0.8rem;
+}
+.button:hover {
+	opacity: 0.8;
 }

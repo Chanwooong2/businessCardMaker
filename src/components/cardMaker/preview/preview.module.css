@@ -1,0 +1,16 @@
+@value makerBlack, makerWhite, makerGreen from '../../../common/colors.css';
+
+h1{
+	color: darkslategrey;
+}
+
+.body {
+	margin:20px;
+	width:100%;
+	height: 200px;
+	background-color: lemonchiffon;
+	display: flex;
+	flex-wrap: wrap;
+	border:1px solid makerBlack;
+	border-radius: 30px;
+}
