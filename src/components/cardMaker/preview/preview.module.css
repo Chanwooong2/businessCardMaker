@@ -1,16 +1,41 @@
 @value makerBlack, makerWhite, makerGreen from '../../../common/colors.css';
 
-h1{
-	color: darkslategrey;
-}
-
 .body {
 	margin:20px;
-	width:100%;
+	width:450px;
 	height: 200px;
-	background-color: lemonchiffon;
+	/* background-color: lemonchiffon; */
 	display: flex;
 	flex-wrap: wrap;
-	border:1px solid makerBlack;
-	border-radius: 30px;
+	border-radius: 20px;
+	box-shadow: 3px 3px 6px 0px #d1d1d1;
+}
+
+.img {
+	width: 150px;
+	height: 150px;
+	background-color: lemonchiffon;
+	border-radius: 75px;
+	margin:25px;
+}
+
+.content {
+	margin:25px 25px 25px 0px;
+	width: calc(100% - 225px);
+}
+
+.title {
+	font-weight: bold;
+	font-size: 1.5rem;
+	line-height: 40px;
+}
+
+.text {
+	font-size: 0.9rem;
+	line-height: 25px;
+}
+
+.line {
+	width: 100%;
+	border-bottom: 1px solid makerBlack;
 }

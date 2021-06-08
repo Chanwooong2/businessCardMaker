@@ -5,7 +5,7 @@ import Preview from './../preview/preview';
 const PreviewList = (props) => {
 		
 	return <div className={styles.body}>
-		<h1>Preview</h1>
+		<h1 className={styles.h1}>Card Preview</h1>
 
 		<Preview></Preview>
 
