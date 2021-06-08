@@ -13,6 +13,7 @@ const CardMaker = (props) => {
 
 		<section className={styles.body}>
 			<FormList />
+			<div className={styles.line}></div>
 			<PreviewList />
 		</section>
 

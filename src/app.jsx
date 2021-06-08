@@ -9,7 +9,9 @@ function App() {
       <Switch>
 
         <Route path={['/','/login']} exact>
-          <Login/>
+          <div className="wrap">
+            <Login/>
+          </div>
         </Route>
 
         <Route path="/cardMaker">
