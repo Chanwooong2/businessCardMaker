@@ -1,3 +1,5 @@
+@value makerBlack from '../../common/colors.css';
+
 .header {
 	height: 80px;
 	width: 100%;
@@ -44,4 +46,23 @@
 		border:0px;
 		border-bottom: 1px solid #eee;
 	}
+}
+
+.logout {
+	height: 10px;
+	line-height: 10px;
+	background-color: makerBlack;
+	color: white;
+	position: absolute;
+	top:0;
+	right: 0;
+	text-align: center;
+	padding: 10px;
+	margin:5px;
+	border-radius: 5px;
+	font-size: 0.6rem;
+	cursor: pointer;
+}
+.logout:hover{
+	opacity: 0.8;
 }

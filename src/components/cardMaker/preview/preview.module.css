@@ -1,4 +1,4 @@
-@value makerBlack, makerWhite, makerGreen from '../../../common/colors.css';
+@value makerBlack, makerWhite, makerGreen, makerWheat,makerColorful from '../../../common/colors.css';
 
 .body {
 	margin:20px;
@@ -37,5 +37,17 @@
 
 .line {
 	width: 100%;
-	border-bottom: 1px solid makerBlack;
+	border-bottom: 1px solid makerWheat;
+}
+
+.light {
+	background-color: makerWhite;
+}
+.black {
+	background-color: makerBlack;
+	color: makerWhite;
+}
+.colorful {
+	background: makerColorful;
+	color: makerWhite;
 }

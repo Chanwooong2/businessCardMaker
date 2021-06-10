@@ -3,7 +3,7 @@ import styles from './preview.module.css';
 
 const Preview = (props) => {
 	return (
-		<div className={styles.body}>
+		<div className={`${styles.body} ${styles.light}`}>
 			
 			<img src="/images/cat.png" alt="" className={styles.img} />
 

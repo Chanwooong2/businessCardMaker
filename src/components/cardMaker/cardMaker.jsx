@@ -11,6 +11,8 @@ const CardMaker = (props) => {
 			<div>Business Card Maker</div>
 		</div>
 
+		<div className={styles.logout}>Logout</div>
+
 		<section className={styles.body}>
 			<FormList />
 			<div className={styles.line}></div>
