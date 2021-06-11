@@ -25,3 +25,6 @@ yarn-error.log*
 
 # Chanwoong's  *To Do List*
 chanwoong.txt
+
+# API Keys
+.env

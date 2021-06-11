@@ -3,14 +3,14 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import CardMaker from './components/cardMaker/cardMaker';
 import Login from './components/login/login';
 
-function App() {
+function App({authService}) {
   return (
     <BrowserRouter>
       <Switch>
 
         <Route path={['/','/login']} exact>
           <div className="wrap">
-            <Login/>
+            <Login authService={authService}/>
           </div>
         </Route>
 

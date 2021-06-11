@@ -2,8 +2,15 @@ import React from 'react';
 import { useHistory } from 'react-router-dom';
 import styles from './login.module.css';
 
-const Login = (props) => {
-	const history = useHistory();
+const Login = ({authService}) => {
+	// const history = useHistory();
+
+	const onLogin =(event)=>{
+		authService	//
+			.login(event.currentTarget.textContent)
+			.then(console.log);
+	}
+
 	return (
 		<section className={styles.login}>
 			<div className={styles.header}>
@@ -13,8 +20,8 @@ const Login = (props) => {
 			<div className={styles.body}>
 				<div>Login</div>
 				<div className={styles.btnBox}>
-					<button className={styles.btn} onClick={()=>{alert("github!");}}>GitHub</button>
-					<button className={styles.btn} onClick={()=>{alert("google!");}}>Google</button>
+					<button className={styles.btn} onClick={onLogin}>Google</button>
+					<button className={styles.btn} onClick={onLogin}>Github</button>
 				</div>
 			</div>
 			<div className={styles.footer}>Made by Chanwooong2</div>
