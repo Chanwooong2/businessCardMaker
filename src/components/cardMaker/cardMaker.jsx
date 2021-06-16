@@ -9,11 +9,14 @@ const CardMaker = ({authService}) => {
 
 	const onLogout = () =>{
 		authService.logout();
-		history.push('/');
 	}
 
 	useEffect (()=> {
-
+		authService.onAuthChange(user => {
+			if(!user){
+				history.push('/');
+			}
+		})
 	})
 
 	return <>
