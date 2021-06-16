@@ -1,15 +1,30 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 import styles from './login.module.css';
 
 const Login = ({authService}) => {
-	// const history = useHistory();
+	const history = useHistory();
+	const goToMaker = (uid) =>{
+		history.push({
+			pathname : '/cardMaker',
+			state : { id : uid },
+		});
+	}
 
 	const onLogin =(event)=>{
 		authService	//
 			.login(event.currentTarget.textContent)
-			.then(console.log);
+			.then((data) => goToMaker(data.user.uid));
 	}
+
+	useEffect(()=>{
+		authService
+			.onAuthChange(user => {
+				if(user != null){
+					goToMaker(user.id);
+				}
+			})
+	});
 
 	return (
 		<section className={styles.login}>

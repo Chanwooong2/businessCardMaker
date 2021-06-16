@@ -1,9 +1,21 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import FormList from './formList/formList';
 import PreviewList from './previewList/previewList';
 import styles from './cardMaker.module.css'
+import { useHistory } from 'react-router-dom';
 
-const CardMaker = (props) => {
+const CardMaker = ({authService}) => {
+	const history = useHistory();
+
+	const onLogout = () =>{
+		authService.logout();
+		history.push('/');
+	}
+
+	useEffect (()=> {
+
+	})
+
 	return <>
 
 		<div className={styles.header}>
@@ -11,7 +23,7 @@ const CardMaker = (props) => {
 			<div>Business Card Maker</div>
 		</div>
 
-		<div className={styles.logout}>Logout</div>
+		<div className={styles.logout} onClick={onLogout}>Logout</div>
 
 		<section className={styles.body}>
 			<FormList />

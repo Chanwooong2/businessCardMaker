@@ -15,7 +15,7 @@ function App({authService}) {
         </Route>
 
         <Route path="/cardMaker">
-          <CardMaker/>
+          <CardMaker authService={authService}/>
         </Route>
       </Switch>
     </BrowserRouter>
