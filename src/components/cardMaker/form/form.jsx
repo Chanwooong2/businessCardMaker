@@ -1,7 +1,22 @@
 import React from 'react';
 import styles from './form.module.css'
 
-const Form = (props) => {
+const Form = ({dbService}) => {
+
+	const insertDBTest=()=>{
+		let user = {
+			uid: 1,
+			name: "chanwoong",
+			email: "mcw0219@gmail.com",
+			position: "Assistant",
+			company: "WoongCompany",
+			message: "Push the evelope",
+			profile: "/resource/img/chanwoong.jpg",
+			theme: "colorful"
+		};
+debugger;
+		dbService.dbUpdate(user);
+	}
 
 	return(
 		<form className={styles.body}>
@@ -18,7 +33,7 @@ const Form = (props) => {
 			
 			{/* <div className={styles.fileInput}> */}
 				<input type="text" className={styles.fileInput} defaultValue="test"/>
-				<button className={styles.button}>test</button>
+				<button className={styles.button} onClick={insertDBTest}>test</button>
 			{/* </div> */}
 		</form>
 	)

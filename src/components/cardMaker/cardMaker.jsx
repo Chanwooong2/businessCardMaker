@@ -4,7 +4,7 @@ import PreviewList from './previewList/previewList';
 import styles from './cardMaker.module.css'
 import { useHistory } from 'react-router-dom';
 
-const CardMaker = ({authService}) => {
+const CardMaker = ({authService, dbService}) => {
 	const history = useHistory();
 
 	const onLogout = () =>{
@@ -29,7 +29,7 @@ const CardMaker = ({authService}) => {
 		<div className={styles.logout} onClick={onLogout}>Logout</div>
 
 		<section className={styles.body}>
-			<FormList />
+			<FormList dbService={dbService}/>
 			<div className={styles.line}></div>
 			<PreviewList />
 		</section>

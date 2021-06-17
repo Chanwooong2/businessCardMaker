@@ -3,7 +3,7 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import CardMaker from './components/cardMaker/cardMaker';
 import Login from './components/login/login';
 
-function App({authService}) {
+function App({authService, dbService}) {
   return (
     <BrowserRouter>
       <Switch>
@@ -15,7 +15,10 @@ function App({authService}) {
         </Route>
 
         <Route path="/cardMaker">
-          <CardMaker authService={authService}/>
+          <CardMaker 
+            authService={authService}
+            dbService={dbService}
+          />
         </Route>
       </Switch>
     </BrowserRouter>
