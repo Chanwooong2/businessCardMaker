@@ -28,3 +28,6 @@ chanwoong.txt
 
 # API Keys
 .env
+
+# cache
+.eslintcache
