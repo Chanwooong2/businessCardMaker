@@ -2,7 +2,7 @@ import React from 'react';
 import styles from './formList.module.css'
 import Form from './../form/form';
 
-const FormList = ({dbService, cards}) => {
+const FormList = ({cards, addCard, deleteCard}) => {
 
 	return <div className={styles.body}>
 		<h1 className={styles.h1}>Card Maker</h1>
@@ -10,13 +10,13 @@ const FormList = ({dbService, cards}) => {
 			cards.map(card => {
 				return <Form 
 					key={card.uid}
-					dbService={dbService}
-					card={card}/>
+					card={card}
+					deleteCard={deleteCard}/>
 			})
 		}
 		<Form 
-			dbService={dbService}
-			card={null}/>
+			card={null}
+			addCard={addCard}/>
 
 	</div>;
 }

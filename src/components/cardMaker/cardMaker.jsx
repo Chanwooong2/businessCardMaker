@@ -52,6 +52,16 @@ const CardMaker = ({authService, dbService}) => {
 		})
 	});
 
+	const addCard = (card) =>{
+		let newCards = [...cards, card];
+		setCards(newCards);
+	}
+
+	const deleteCard = (card) => {
+		let newCards = [...cards];
+		setCards(newCards.filter(item => item.uid != card.uid));
+	}
+
 	return <>
 
 		<div className={styles.header}>
@@ -63,9 +73,12 @@ const CardMaker = ({authService, dbService}) => {
 
 		<section className={styles.body}>
 			<FormList 
-				dbService={dbService}
-				cards={cards}/>
+				cards={cards}
+				addCard={addCard}
+				deleteCard={deleteCard}/>
+
 			<div className={styles.line}></div>
+
 			<PreviewList 
 				cards={cards}/>
 		</section>
