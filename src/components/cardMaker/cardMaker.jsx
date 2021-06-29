@@ -4,41 +4,13 @@ import PreviewList from './previewList/previewList';
 import styles from './cardMaker.module.css'
 import { useHistory } from 'react-router-dom';
 
-const CardMaker = ({authService, dbService}) => {
+const CardMaker = ({authService, cardRepository}) => {
 	const history = useHistory();
+	const historyState = history?.location?.state;
+	
+	const [userId, setUserId] = useState(historyState && historyState.id)
+	const [cards, setCards] = useState({});
 
-	const [cards, setCards] = useState([
-		{
-			uid: 1,
-			name: "chanwoong1",
-			email: "mcw0219@gmail.com",
-			position: "Assistant1",
-			company: "WoongCompany1",
-			message: "Push the evelope1",
-			profile: "/images/cat.png",
-			theme: "light"
-		},
-		{
-			uid: 2,
-			name: "chanwoong2",
-			email: "mcw0219@naver.com",
-			position: "Assistant2",
-			company: "WoongCompany2",
-			message: "Push the evelope2",
-			profile: "/images/woong2.jpg",
-			theme: "black"
-		},
-		{
-			uid: 3,
-			name: "chanwoong3",
-			email: "mcw0219@gmail.com",
-			position: "Assistant3",
-			company: "WoongCompany3",
-			message: "Push the evelope3",
-			profile: "/images/woong.png",
-			theme: "colorful"
-		}
-	]);
 
 	const onLogout = () =>{
 		authService.logout();
@@ -46,20 +18,42 @@ const CardMaker = ({authService, dbService}) => {
 
 	useEffect (()=> {
 		authService.onAuthChange(user => {
-			if(!user){
+			if(user){
+				setUserId(user.uid);
+			} else{
 				history.push('/');
 			}
 		})
 	});
+	useEffect (()=> {
+		if(!userId){
+			return;
+		}
+		const stopSync = cardRepository.syncCards(userId, cards => {
+			setCards(cards);
+		})
+		return () => { stopSync(); }
+	}, [userId]);
+
+	
 
 	const addCard = (card) =>{
-		let newCards = [...cards, card];
-		setCards(newCards);
+		setCards(cards => {
+			const updated = { ...cards };
+			updated[card.id] = card;
+			return updated;
+		  });
+
+		cardRepository.saveCard(userId, card);
 	}
 
 	const deleteCard = (card) => {
-		let newCards = [...cards];
-		setCards(newCards.filter(item => item.uid != card.uid));
+		setCards(cards => {
+			const updated = { ...cards };
+			delete updated[card.id];
+			return updated;
+		  });
+		cardRepository.deleteCard(userId, card);
 	}
 
 	return <>
@@ -75,6 +69,7 @@ const CardMaker = ({authService, dbService}) => {
 			<FormList 
 				cards={cards}
 				addCard={addCard}
+				updateCard={addCard}
 				deleteCard={deleteCard}/>
 
 			<div className={styles.line}></div>

@@ -7,10 +7,11 @@ const PreviewList = ({cards}) => {
 	return <div className={styles.body}>
 		<h1 className={styles.h1}>Card Preview</h1>
 		{
-			cards.map(card => {
+			Object.keys(cards).map(key => {
+				
 				return <Preview 
-					key={card.uid}
-					card={card}/>
+					key={key}
+					card={cards[key]}/>
 			})
 		}
 
