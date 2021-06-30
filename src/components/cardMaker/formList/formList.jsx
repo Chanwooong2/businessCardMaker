@@ -2,7 +2,7 @@ import React from 'react';
 import styles from './formList.module.css'
 import Form from './../form/form';
 
-const FormList = ({cards, addCard, updateCard, deleteCard}) => {
+const FormList = ({cards, addCard, updateCard, deleteCard, FileInput}) => {
 
 	return <div className={styles.body}>
 		<h1 className={styles.h1}>Card Maker</h1>
@@ -13,12 +13,14 @@ const FormList = ({cards, addCard, updateCard, deleteCard}) => {
 					key={key}
 					card={cards[key]}
 					updateCard={updateCard}
-					deleteCard={deleteCard}/>
+					deleteCard={deleteCard}
+					FileInput={FileInput}/>
 			})
 		}
 			<Form 
 				card={null}
-				addCard={addCard}/>
+				addCard={addCard}
+				FileInput={FileInput}/>
 		</div>;
 }
 	

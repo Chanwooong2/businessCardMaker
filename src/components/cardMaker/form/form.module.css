@@ -31,7 +31,6 @@
 .input,
 .select,
 .textarea,
-.fileInput,
 .button {
 	border: 0;
 	border-bottom : 1px solid makerBlack;

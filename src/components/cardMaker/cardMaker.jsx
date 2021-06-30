@@ -4,7 +4,7 @@ import PreviewList from './previewList/previewList';
 import styles from './cardMaker.module.css'
 import { useHistory } from 'react-router-dom';
 
-const CardMaker = ({authService, cardRepository}) => {
+const CardMaker = ({authService, cardRepository, FileInput}) => {
 	const history = useHistory();
 	const historyState = history?.location?.state;
 	
@@ -70,7 +70,8 @@ const CardMaker = ({authService, cardRepository}) => {
 				cards={cards}
 				addCard={addCard}
 				updateCard={addCard}
-				deleteCard={deleteCard}/>
+				deleteCard={deleteCard}
+				FileInput={FileInput}/>
 
 			<div className={styles.line}></div>
 

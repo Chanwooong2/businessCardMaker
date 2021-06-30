@@ -1,7 +1,7 @@
 import React, { useRef } from 'react';
 import styles from './form.module.css'
 
-const Form = ({card, addCard, deleteCard, updateCard}) => {
+const Form = ({card, addCard, deleteCard, updateCard, FileInput}) => {
 
 	const formRef = useRef();
 	const nameRef = useRef();
@@ -58,10 +58,11 @@ const Form = ({card, addCard, deleteCard, updateCard}) => {
 				<input type="text" name="email" className={styles.input} defaultValue={card.email} onChange={onChange}/>
 				<textarea name="message"id="message" defaultValue={card.message} onChange={onChange} className={styles.textarea} rows="4"></textarea>
 				
-				{/* <div className={styles.fileInput}> */}
-					<input type="text" name="profile" className={styles.fileInput} defaultValue={card.profile} onChange={onChange}/>
-					<button className={styles.button} onClick={onDeleteCard}>Delete</button>
-				{/* </div> */}
+				<div className={styles.fileInput}>
+					<FileInput />
+					{/* <input type="text" name="profile" className={styles.fileInput} defaultValue={card.profile} onChange={onChange}/> */}
+				</div>
+				<button className={styles.button} onClick={onDeleteCard}>Delete</button>
 			</form>
 		)
 	}else if(card == null){
@@ -78,10 +79,11 @@ const Form = ({card, addCard, deleteCard, updateCard}) => {
 				<input ref={emailRef} name="email" type="text" className={styles.input} placeholder="Email"/>
 				<textarea ref={messageRef} name="message" id="message" placeholder="Your message" className={styles.textarea} rows="4"></textarea>
 				
-				{/* <div className={styles.fileInput}> */}
-					<input ref={profileRef} name="profile" type="text" className={styles.fileInput} placeholder="test"/>
-					<button name="Add" className={styles.button} onClick={onAddCard}>Add</button>
-				{/* </div> */}
+				<div className={styles.fileInput}>
+					<FileInput />
+					{/* <input ref={profileRef} name="profile" type="text" className={styles.fileInput} placeholder="test"/> */}
+				</div>
+				<button name="Add" className={styles.button} onClick={onAddCard}>Add</button>
 			</form>
 		)
 		
