@@ -33,6 +33,5 @@ const ImageFileInput = ({ imageUploader, profile, onFileChange }) => {
 
 			</div>
 }
-	
 
 export default ImageFileInput;

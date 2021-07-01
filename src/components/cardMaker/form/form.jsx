@@ -47,7 +47,6 @@ const Form = ({card, deleteCard, updateCard, FileInput}) => {
 			<button className={styles.button} onClick={onDeleteCard}>Delete</button>
 		</form>
 	)
-	
 };
 
 export default Form;

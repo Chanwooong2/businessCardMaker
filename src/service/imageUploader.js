@@ -1,5 +1,3 @@
-
-
 class ImageUploader {
 	async upload(file){
 		const url = "https://api.cloudinary.com/v1_1/chanwoong/image/upload";

@@ -2,19 +2,16 @@ import React, { useRef, useState } from 'react';
 import styles from './form.module.css'
 
 const AddForm = ({addCard, updateCard, FileInput}) => {
-
 	const formRef = useRef();
 	const nameRef = useRef();
 	const companyRef = useRef();
 	const themeRef = useRef();
 	const positionRef = useRef();
 	const emailRef = useRef();
-	const profileRef = useRef();
 	const messageRef = useRef();
 	const [file, setFile]= useState({profile: null, profileUrl: null});
 
 	const onFileChange = file =>{
-		// console.log(file);
 		setFile({
 			profile:file.name,
 			profileUrl:file.url
@@ -23,7 +20,6 @@ const AddForm = ({addCard, updateCard, FileInput}) => {
 
 	const onAddCard =(event)=>{
 		event.preventDefault();
-		console.log(file);
 		const card = {
 			uid: Date.now(),
 			name : nameRef.current.value || '',
@@ -42,7 +38,6 @@ const AddForm = ({addCard, updateCard, FileInput}) => {
 			profileUrl:null
 		});
 
-		console.log(card);
 		addCard(card);
 	}
 
@@ -65,8 +60,6 @@ const AddForm = ({addCard, updateCard, FileInput}) => {
 			<button name="Add" className={styles.button} onClick={onAddCard}>Add</button>
 		</form>
 	)
-		
-	
 };
 
 export default AddForm;
