@@ -1,18 +1,21 @@
 import React, { useRef } from 'react';
 import styles from './imageFileInput.module.css'
 
-const ImageFileInput = ({ imageUploader, name, onFileChange }) => {
+const ImageFileInput = ({ imageUploader, profile, onFileChange }) => {
 	const inputRef = useRef();
 	const onBtnClick =(event) =>{
 		event.preventDefault();
 		inputRef.current.click();
 	}
 
-	const onChange =(event)=>{
+	const onChange = async (event) =>{
+		const uploaded = await imageUploader.upload(event.target.files[0]);
 
-		// 마무리 필요
-		imageUploader(event.target.files[0])
-		.then(console.log());
+		console.log(uploaded);
+		onFileChange({
+			name: uploaded.original_filename,
+			url: uploaded.url
+		});
 	}
 
 	return <div className={styles.contatiner}>
@@ -21,11 +24,11 @@ const ImageFileInput = ({ imageUploader, name, onFileChange }) => {
 					className={styles.input}
 					type="file" 
 					accept="image/*" 
-					name="file" 
+					name={profile}
 					onChange={onChange}
 				/>
 				<button className={styles.button} onClick={onBtnClick}>
-					{name || 'No File'}
+					{profile || 'No File'}
 				</button>
 
 			</div>
